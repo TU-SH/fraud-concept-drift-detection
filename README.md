@@ -249,6 +249,27 @@ V1 after:   high negative value → likely fraud
 
 → The model's learned rule is now backwards
 
+**amount**: The transaction amount in dollars/euros. for example $23.50 grocery shop, $500 electronics purchase. Fraud patterns often show in amount: 
+
+Before drift → fraud clustered around small amounts ($50)
+
+After drift  → fraud jumps to high amounts ($500)
+
+Jumping SHAP value from from 0.13 → 5.13
+
+**class**: The label *y* (what we are trying to predict). 
+
+Values:      0 = legitimate transaction (97% of data)
+
+             1 = fraudulent transaction  (3% of data)
+
+**time**: Seconds elapsed since the first transaction in the dataset. For example 0, 3600, 86400 (= 1 hour, 1 day). In our data: We use it to order transactions chronologically
+
+             pre_drift  = Time 0      to 86,400  (day 1)
+             
+             post_drift = Time 86,400 to 172,800 (day 2)
+             
+             recovery   = Time 172,800 to 259,200 (day 3)
 
 ### Part 2: XGBoost Fraud Detection 
 XGBoost builds an ensemble of 200 decision trees sequentially, where each tree corrects the errors of the previous one.
@@ -263,6 +284,9 @@ $f_t(x_i)$ is prediction from tree $t$
 $\eta$ is learning rate (how much each tree contributes)
 
 $\sigma$ is sigmoid function (converts score to fraud probability (0-1)
+
+A transaction is flagged fraud when $p>0.5$. 
+
 
 
 
