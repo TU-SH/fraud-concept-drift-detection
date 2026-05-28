@@ -254,7 +254,7 @@ V1 after:   high negative value → likely fraud
 XGBoost builds an ensemble of 200 decision trees sequentially, where each tree corrects the errors of the previous one.
 Each tree is trained on the residual errors of all previous trees combined: 
 
-final prediction: $$    p = \sigma\left( \sum_{i} \eta \cdot f_t(x_i) \right)    $$
+final prediction: $p = \sigma\left( \sum_{i} \eta \cdot f_t(x_i) \right)$
 
 where, 
 
