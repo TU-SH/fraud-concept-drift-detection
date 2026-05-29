@@ -259,10 +259,7 @@ Jumping SHAP value from from 0.13 → 5.13
 
 **class**: The label *y* (what we are trying to predict). 
 
-Values:      
-            0 = legitimate transaction (97% of data)
-
-            1 = fraudulent transaction  (3% of data)
+Values: 0 = legitimate transaction (97% of data); 1 = fraudulent transaction  (3% of data)
 
 **time**: Seconds elapsed since the first transaction in the dataset. For example 0, 3600, 86400 (= 1 hour, 1 day). In our data: We use it to order transactions chronologically
 
