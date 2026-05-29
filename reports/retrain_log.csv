@@ -1,0 +1,6 @@
+retrain_id,timestamp,chunk_index,trigger,buffer_size,fraud_rate_in_buffer,retrain_time_sec,before_roc_auc,after_roc_auc,before_avg_precision,after_avg_precision,before_f1,after_f1
+1,2026-05-27T15:26:23.925239,37,detector_fired,3000,0.026,0.16,0.7478,1.0,0.3951,1.0,0.3704,1.0
+2,2026-05-27T15:26:24.167916,38,detector_fired,3000,0.0277,0.15,0.9619,1.0,0.5629,1.0,0.1739,0.9767
+3,2026-05-27T15:26:24.756097,43,detector_fired,3000,0.0427,0.14,0.9989,1.0,0.9804,1.0,0.9091,1.0
+4,2026-05-27T15:26:32.742417,76,detector_fired,3000,0.029,0.1,0.9378,1.0,0.8034,1.0,0.7,1.0
+5,2026-05-27T15:26:32.928023,77,detector_fired,3000,0.0273,0.12,0.9723,1.0,0.7643,1.0,0.7,1.0
