@@ -418,6 +418,61 @@ Three metrics tracked across all 100 chunks (40,000 samples):
 
 **Adaptive model (blue)**: dips briefly at the drift boundary, then **recovers to ~1.0 within 2 chunks** after the first retrain (green dashed lines). Stays above 0.87 for the rest of the experiment. 
 
+**ROC-AUC (middle panel)** 
+
+**Static model**: drops from **0.97 to ~0.40** during the drift period — worse than random guessing for fraud detection.
+
+**Adaptive model**: barely dips below **0.95** throughout.
+
+**Average Precision (bottom panel)**
+
+**Static model**: collapses from **0.91 to ~0.03** — meaning it almost completely stops identifying fraud after drift.
+
+**Adaptive model**: recovers to **~1.0** and holds steady.
+
+The green vertical lines mark each retraining event. The blue shading = pre-drift period, red shading = post-drift, green shading = recovery. 
+
+### 3. ROC-AUC Before vs After Each Retraining
+
+<img width="961" height="634" alt="retrain_improvement" src="https://github.com/user-attachments/assets/da0ba644-f64a-4fe8-925c-89be12546b77" /> 
+
+5 retraining events were triggered across the full experiment:
+
+| Retrain | Before retraining | After retraining | Improvement |
+|---------|--------|-------|-------------|
+| #1 | 0.750 | 1.000 | **+0.252** — biggest jump, first drift hit |
+| #2 | 0.962 | 1.000 | +0.038 |
+| #3 | 1.000 | 1.000 | +0.001 — already adapted |
+| #4 | 0.938 | 1.000 | +0.062 — recovery period drift |
+| #5 | 0.972 | 1.000 | +0.028 |
+
+during #1 retrain event - the stale model had ROC-AUC of 0.750 (degraded by drift), and after retraining on the new distribution it jumped to 1.000. Every subsequent retrain brought the model back to perfect discrimination within a single retraining cycle.
+
+### 4. SHAP Feature Importance Shift (Before vs After Drift) 
+
+<img width="1186" height="823" alt="shap_drift_shift" src="https://github.com/user-attachments/assets/63c2ed13-c88e-4570-bef2-6cfbab35a66b" />
+
+This chart shows **which features changed the most** due to concept drift.
+
+**Amount**
+
+**Before drift**: SHAP value = **0.127** (ranked ~17th most important)
+**After drift**: SHAP value = **5.05** (by far the #1 most important feature)
+
+**Interpretation**: Fraudsters completely changed tactics — fraud shifted from small low-value transactions (~$50) to high-value transactions (~$500). The transaction amount became 40× more predictive of fraud after drift.
+
+**`V21`, `V15`, `V22`, `V2`, `V20` (disappeared):**
+
+All had SHAP values of 0.3–0.8 before drift. After drift, all collapsed to near 0. 
+
+**Interpretation**: The behavioural patterns these features encoded simply stopped being associated with fraud. The old fraud fingerprint vanished.
+
+**`V11`, `V16`, `V12` (emerged):**
+Low importance before drift (~0.10). Moderate importance after drift (~0.30). 
+
+**Interpretation**: New fraud patterns activated these previously dormant features.
+
+### 5. Feature importance - pre-drift model
 
 
 
