@@ -145,11 +145,11 @@ This is the **"explainable drift"** angle — not just detecting that drift happ
 
 | Page                    | What it shows                                          |
 |-------------------------|-------------------------------------------------------|
-| 📊 Overview Dashboard   | KPIs, F1 comparison chart, period distribution        |
-| 📈 Performance Comparison | Selectable metric, smoothed comparison, summary table |
-| 🚨 Drift Events          | Timeline, detector breakdown, full event table        |
-| 🔄 Retraining Log        | Before/after ROC-AUC bar chart, retrain details       |
-| 📋 Data Explorer         | Feature distributions by drift period                 |
+|  Overview Dashboard   | KPIs, F1 comparison chart, period distribution        |
+|  Performance Comparison | Selectable metric, smoothed comparison, summary table |
+|  Drift Events          | Timeline, detector breakdown, full event table        |
+|  Retraining Log        | Before/after ROC-AUC bar chart, retrain details       |
+|  Data Explorer         | Feature distributions by drift period                 |
 
 ---
 
