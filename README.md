@@ -288,13 +288,17 @@ $\sigma$ is sigmoid function (converts score to fraud probability (0-1)
 
 A transaction is flagged fraud when $p>0.5$.  
 
-<img width="1440" height="440" alt="image" src="https://github.com/user-attachments/assets/7a9fa69e-0510-42e0-87fb-2d61128983f1" />
+### Part 3: Drift Detection
+All three detectors (ADWIN, DDM, Page-Hinkley) watch error stream e₁, e₂, e₃, … where eᵢ = 1 if prediction was wrong, 0 if correct. They answer the question: has the error rate changed significantly?
 
+**why use three detectors** 
+Each one has a different failure mode. Running all three in parallel gives **redundancy**:
 
-
-
-
-
+| Detector      | Sensitive to                 | Blind to                 | Time complexity |
+|----------------|-------------------------------------|------------------------------------|
+| ADWIN      | Distribution shift in any window    | Very gradual drift |O(log n)            |
+| DDM       | Error rate climbing above its own minimum           | Seasonal oscillation |O(1)|
+| Page-Hinkley         | Persistent mean increase           | Temporary spikes  |O(1)         |
 
 
 
