@@ -1,6 +1,6 @@
 # Adaptive Fraud Detection with Concept Drift Detection
 
-Demonstrates concept drift detection & automated model adaptation. 
+Demonstrates financial fraud detection, concept drift detection & automated model adaptation. 
 
 ---
 
