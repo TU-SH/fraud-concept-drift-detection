@@ -297,6 +297,22 @@ Maintains a sliding window W and splits it into two sub-windows W₁ (old) and W
 
 $$|\mu_{W_1} - \mu_{W_2}| \geq \sqrt{\dfrac{1}{2m} \ln \dfrac{4n}{\delta}}$$
 
+where, 
+$m$ is size of small sub window
+$n$ is total window size 
+$\delta$ is false positive tolerance 
+
+On drift detection: the older sub-window is discarded and monitoring restarts on fresh data. Best for abrupt and gradual drift.
+
+**DDM (Drift detection method)**
+
+The Drift Detection Method (DDM), monitors the error rate of a classifier over time. It assumes that the error rate follows a Bernoulli distribution. 
+
+It tracks
+$p$ the current error rate
+$s$ the standard deviation given as $\sqrt{\frac{p(1-p)}{n}}$ 
+
+
 
 
 **why use three detectors** 
