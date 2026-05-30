@@ -51,7 +51,7 @@ fraud_drift_detection/
 ├── models/                             # Saved model checkpoints (.pkl)
 ├── reports/                            # Generated plots, CSVs
 │
-├── run_experiment.py                   # 🚀 Main entry point — run this first
+├── run_experiment.py                   # Main entry point — run this first
 ├── requirements.txt
 └── README.md
 ```
