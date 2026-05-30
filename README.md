@@ -1,4 +1,4 @@
-# Adaptive Fraud Detection with Concept Drift Detection
+# FraudSentinel - Adaptive Financial Fraud Detection with Concept Drift Detection and Adaptation
 
 Demonstrates financial fraud detection, concept drift detection & automated model adaptation. 
 
